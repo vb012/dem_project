@@ -1,7 +1,7 @@
 #include <stdio.h> 
 #include "platform_types.h"
 
-typedef __uint8_t dem_event_type;
+typedef uint8 Dem_EventIdType;
 
 typedef enum 
 {
@@ -14,12 +14,13 @@ typedef enum
     Test_Not_Completed_This_Operation_Cycle,
     Warning_Indicator_Request
 
-}Dem_Event_Status;
+}Dem_EventStatusType;
 
 typedef struct
 {
-    dem_event_type Failed_event_count;
-    Dem_Event_Status Event_status;
+    Dem_EventIdType Failed_event_count;
+    Dem_EventStatusType Event_status;
 }Fault_Memory;
 
 extern Fault_Memory fm;
+Std_ReturnType Dem_SetEventStatus (Dem_EventIdType EventId,Dem_EventStatusType EventStatus);
