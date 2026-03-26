@@ -40,6 +40,7 @@ dem_projects/
 | `Dem_SetEventStatus()` | Reports an event status (e.g., Test_Failed) and logs the DTC with timestamp |
 | `Dem_GetDTCOfEvent()` | Returns the DTC associated with a given EventId in the specified format |
 | `Dem_ClearDTC()` | Clears the fault memory log |
+| `Dem_GetEventUdsStatus()`| Returns the Fault Memory information from the logs |
 
 ---
 
@@ -101,8 +102,12 @@ Clears the contents of `Fault_Memory.txt`.
 ## Sample Fault Memory Output
 
 ```
-[2026-03-26 18:44:28] Event_Id 1 DTC 4608
-[2026-03-26 18:44:34] Event_Id 0 DTC 4352
+0 4352
+0 4352
+1 4608
+1 4608
+1 4608
+0 4352
 ```
 
 *(DTC values are decimal representations of 0x1200 and 0x1100 respectively)*
