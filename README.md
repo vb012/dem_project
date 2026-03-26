@@ -127,7 +127,6 @@ Clears the contents of `Fault_Memory.txt`.
 This is an intentionally minimal implementation for learning purposes. Planned improvements:
 
 - [ ] Fix `Dem_SetEventStatus` to update in-memory event status correctly
-- [ ] Add `Dem_GetEventStatus` API
 - [ ] Support multiple simultaneous fault events (event array instead of single struct)
 - [ ] Add debounce counter logic
 - [ ] Add operation cycle management (`Dem_SetOperationCycleState`)
