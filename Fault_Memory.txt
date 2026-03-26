@@ -1,3 +1,2 @@
-
-Over temperature reported on [2026-03-25 21:28:53] 
-Over temperature reported on [2026-03-25 22:49:40] 
+[2026-03-26 18:44:28] Event_Id 1 DTC 4608
+[2026-03-26 18:44:34] Event_Id 0 DTC 4352
