@@ -60,3 +60,12 @@ uint32 *DTCOfEvent
         }
     }
 }
+
+Std_ReturnType Dem_ClearDTC (
+uint8 ClientId
+)
+{
+    uint8 retval =0;
+    fp = fopen("Fault_Memory.txt", "w");
+    retval = 1;
+}

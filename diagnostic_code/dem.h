@@ -38,3 +38,7 @@ Dem_EventIdType EventId,
 Dem_DTCFormatType DTCFormat,
 uint32* DTCOfEvent
 );
+
+Std_ReturnType Dem_ClearDTC (
+uint8 ClientId
+);
