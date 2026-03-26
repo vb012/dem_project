@@ -6,8 +6,9 @@
 int main()
 {
     uint8 opreation;
-    printf("\n Enter which operation need to execute now\n 1.Monitor temperature 2.Clear fault Memory\n");
+    printf("\n Enter which operation need to execute now\n 1.Monitor temperature \n 2.Clear fault Memory\n 3.Read data from fault memory\n");
     scanf("%d",&opreation);
+    Dem_UdsStatusByteType faultdata;
     dem_init();
     if(opreation == 1)
     {
@@ -17,6 +18,11 @@ int main()
     if(opreation == 2)
     {
         Dem_ClearDTC(1);
+    }
+    if(opreation == 3)
+    {
+        Dem_GetEventUdsStatus (1,&faultdata);
+
     }
     
     return 0;
