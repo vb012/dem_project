@@ -22,16 +22,16 @@ typedef enum
     Test_Not_Completed_This_Operation_Cycle,
     Warning_Indicator_Request
 
-}Dem_EventStatusType;
+}Dem_UdsStatusByteType;
 
 typedef struct
 {
     Dem_EventIdType EventId;
-    Dem_EventStatusType Event_status;
+    Dem_UdsStatusByteType Event_status;
 }Fault_Memory;
 
 extern Fault_Memory fm;
-Std_ReturnType Dem_SetEventStatus (Dem_EventIdType EventId,Dem_EventStatusType EventStatus);
+Std_ReturnType Dem_SetEventStatus (Dem_EventIdType EventId,Dem_UdsStatusByteType EventStatus);
 
 Std_ReturnType Dem_GetDTCOfEvent (
 Dem_EventIdType EventId,
@@ -41,4 +41,9 @@ uint32* DTCOfEvent
 
 Std_ReturnType Dem_ClearDTC (
 uint8 ClientId
+);
+
+Std_ReturnType Dem_GetEventUdsStatus (
+Dem_EventIdType EventId,
+Dem_UdsStatusByteType* UDSStatusByte
 );

@@ -17,7 +17,7 @@ void dem_init(void)
     fm.EventId = 0;
 }
 
-Std_ReturnType Dem_SetEventStatus (Dem_EventIdType EventId,Dem_EventStatusType EventStatus)
+Std_ReturnType Dem_SetEventStatus (Dem_EventIdType EventId,Dem_UdsStatusByteType EventStatus)
 {
     int retval;
     uint32 DTCOfEvent;
@@ -28,11 +28,8 @@ Std_ReturnType Dem_SetEventStatus (Dem_EventIdType EventId,Dem_EventStatusType E
         return retval;
     }
     else{
-    time(&now);
-    t = localtime(&now);
-    strftime(timeStr, sizeof(timeStr), "%Y-%m-%d %H:%M:%S", t);
     Dem_GetDTCOfEvent(fm.EventId,1,&DTCOfEvent);
-    fprintf(fp,"[%s] Event_Id %d DTC %d\n",timeStr,fm.EventId,DTCOfEvent);
+    fprintf(fp,"%d %d\n",fm.EventId,DTCOfEvent);
     retval = 0;
     fclose(fp);
     return retval;
@@ -40,7 +37,7 @@ Std_ReturnType Dem_SetEventStatus (Dem_EventIdType EventId,Dem_EventStatusType E
 
 }
 
-Std_ReturnType Dem_SetEventStatus (Dem_EventIdType EventId,Dem_EventStatusType EventStatus);
+Std_ReturnType Dem_SetEventStatus (Dem_EventIdType EventId,Dem_UdsStatusByteType EventStatus);
 
 Std_ReturnType Dem_GetDTCOfEvent (
 Dem_EventIdType EventId,
@@ -67,5 +64,21 @@ uint8 ClientId
 {
     uint8 retval =0;
     fp = fopen("Fault_Memory.txt", "w");
+    fclose(fp);
     retval = 1;
+}
+
+Std_ReturnType Dem_GetEventUdsStatus (
+Dem_EventIdType EventId,
+Dem_UdsStatusByteType* UDSStatusByte
+)
+{
+    uint8 Retval =0;
+    char buffer[100];
+    fp = fopen ("Fault_Memory.txt", "r");
+    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
+        printf("%s", buffer);  // print each line
+    }
+    fclose(fp);
+    Retval = 1;
 }
